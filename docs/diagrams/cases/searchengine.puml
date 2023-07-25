@@ -1,0 +1,12 @@
+@startuml searchengine
+left to right direction
+actor SearchEngine
+rectangle "System" as system {
+  (Search)
+  (Filter)
+  (Display Result)
+}
+SearchEngine --> (Search)
+SearchEngine --> (Filter)
+SearchEngine --> (Display Result)
+@enduml

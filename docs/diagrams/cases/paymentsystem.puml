@@ -1,0 +1,12 @@
+@startuml paymentsystem
+left to right direction
+actor PaymentSystem
+rectangle "System" as system {
+  (Validate Method of Payment)
+  (Process Payment)
+  (Confirm Booking)
+}
+PaymentSystem --> (Validate Method of Payment)
+PaymentSystem --> (Process Payment)
+PaymentSystem --> (Confirm Booking)
+@enduml
