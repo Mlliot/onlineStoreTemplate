@@ -2,11 +2,15 @@
 left to right direction
 actor PaymentSystem
 rectangle "System" as system {
-  (Validate Method of Payment)
-  (Process Payment)
-  (Confirm Booking)
+  (Validate Payment Data)
+  (Send Request To Bank)
+  (Receives Response From Bank)
+  (Confirms Booking)
+  (Declines Booking)
 }
-PaymentSystem --> (Validate Method of Payment)
-PaymentSystem --> (Process Payment)
-PaymentSystem --> (Confirm Booking)
+PaymentSystem --> (Validate Payment Data)
+PaymentSystem --> (Sends Request To Bank)
+PaymentSystem --> (Receives Response From Bank)
+PaymentSystem --> (Confirms Booking)
+PaymentSystem --> (Declines Booking)
 @enduml

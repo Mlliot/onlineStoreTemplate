@@ -1,0 +1,14 @@
+@startuml vendor
+left to right direction
+actor Vendor
+rectangle "System" as system {
+  (Sells Tickets)
+  (Receives Orders)
+  (Maintains Inventory)
+  (Processes payments)
+}
+Vendor --> (Sells Tickets)
+Vendor --> (Receives Orders)
+Vendor --> (Maintains Inventory)
+Vendor --> (Processes payments)
+@enduml

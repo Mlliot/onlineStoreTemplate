@@ -2,11 +2,15 @@
 left to right direction
 actor SearchEngine
 rectangle "System" as system {
-  (Search)
-  (Filter)
+  (Search Inventory)
+  (Add to Inventory)
+  (Delete from Inventory)
+  (Update Inventory)
   (Display Result)
 }
-SearchEngine --> (Search)
-SearchEngine --> (Filter)
+SearchEngine --> (Search Inventory)
+SearchEngine --> (Add to Inventory)
+SearchEngine --> (Delete from Inventory)
+SearchEngine --> (Update Inventory)
 SearchEngine --> (Display Result)
 @enduml
