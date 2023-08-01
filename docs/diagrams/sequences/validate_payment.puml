@@ -1,9 +1,9 @@
-@startuml validatemethodofpayment
+@startuml validate_payment
 actor  PaymentSystem
 boundary "System" as system
 control "Sessions" as sessions
 control "Authentication" as auth
-Customer -> system: Login
+PaymentSystem -> system: Validate Payment Data
 activate system
 system -> auth: login_pipeline(username, password)
 activate auth

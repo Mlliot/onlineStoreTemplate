@@ -1,9 +1,9 @@
-@startuml confirmbooking
+@startuml search_movie
 actor  PaymentSystem
 boundary "System" as system
 control "Sessions" as sessions
 control "Authentication" as auth
-Customer -> system: Login
+PaymentSystem -> system: Search Inventory
 activate system
 system -> auth: login_pipeline(username, password)
 activate auth

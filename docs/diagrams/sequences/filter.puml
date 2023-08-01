@@ -1,3 +1,0 @@
-@startuml filter
-actor  SearchEngine
-@enduml
