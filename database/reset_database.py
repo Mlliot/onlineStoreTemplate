@@ -69,6 +69,7 @@ def main() -> None:
     # Removes the database file and creates a new one.
     remove_database(database_path)
     create_database(schema_path, starting_data_path, database_path)
+
     return None
 
 if __name__ == '__main__':

@@ -1,3 +1,5 @@
+import sys
+sys.path.append('../')
 from authentication.auth_tools import hash_password
 
 

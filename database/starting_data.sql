@@ -28,7 +28,7 @@ VALUES ('2', 'dritchie', '2', 10, '2022-12-21 7:30:30', 5.50);
 INSERT into `sales` (`transaction_id`, `username`, `item_id`, `quantity`, `sale_date`, `cost`)
 VALUES ('3', 'llamport', '3', 10, '2022-12-21 7:30:30', 5.50);
 
-INSERT into `customers` (`username`, `email`, `first_name`, `last_name`)
+INSERT into `customers` (`user_name`, `email`, `first_name`, `last_name`)
 VALUES ('elmatador1', 'el@matador.com', 'El', 'Matador');
 
 INSERT into `movies` (`item_code`, `title`, `description`, `genre`)
@@ -38,4 +38,4 @@ INSERT into `theaters` (`location_code`, `name`, `city`, `zip_code`)
 VALUES ('XXX12', 'Regal cinemas', 'Matthews', '28105');
 
 INSERT into `shows` (`show_code`, `movie_title`, `running_time`, `date`)
-VALUES ('XYY1', 'top gun', '120 minutes', '2023-08-10', 1, 1);
+VALUES ('XYY1', 'top gun', '120 minutes', '2023-08-10');

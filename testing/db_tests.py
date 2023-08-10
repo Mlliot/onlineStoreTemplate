@@ -1,3 +1,5 @@
+import sys
+sys.path.append('../')
 from database.db import Database
 from core.utils import dict_factory
 
@@ -45,7 +47,73 @@ def test_get_inventory_exists(db: Database = None) -> tuple:
         return False, error
     else:
         return True, "Full inventory is not empty."
+    
+def test_get_theater_exists(db: Database = None) -> tuple:
+    """
+    Tests that the list of theaters is not empty.
 
+    args:
+        - db: an sqlite3 database object (optional)
+
+    returns:
+        - error_report: a tuple containing a boolean and a string, 
+          where the boolean is True if the test passed and False if it failed, 
+          and the string is the error report.
+    """
+
+    db = Database("database/store_records.db") if db is None else db
+    full_inventory = db.get_all_theaters()
+
+    if len(full_inventory) == 0:
+        error = f"Error in test_get_all_theaters: Full inventory is empty.\n  - Actual: {len(full_inventory)}"
+        return False, error
+    else:
+        return True, "List of theaters is not empty."
+    
+
+def test_get_movie_exists(db: Database = None) -> tuple:
+    """
+    Tests that the list of theaters is not empty.
+
+    args:
+        - db: an sqlite3 database object (optional)
+
+    returns:
+        - error_report: a tuple containing a boolean and a string, 
+          where the boolean is True if the test passed and False if it failed, 
+          and the string is the error report.
+    """
+
+    db = Database("database/store_records.db") if db is None else db
+    full_inventory = db.get_all_movies()
+
+    if len(full_inventory) == 0:
+        error = f"Error in test_get_all_movies: Full inventory is empty.\n  - Actual: {len(full_inventory)}"
+        return False, error
+    else:
+        return True, "List of movies is not empty."
+    
+def test_get_show_exists(db: Database = None) -> tuple:
+    """
+    Tests that the list of theaters is not empty.
+
+    args:
+        - db: an sqlite3 database object (optional)
+
+    returns:
+        - error_report: a tuple containing a boolean and a string, 
+          where the boolean is True if the test passed and False if it failed, 
+          and the string is the error report.
+    """
+
+    db = Database("database/store_records.db") if db is None else db
+    full_inventory = db.get_all_shows()
+
+    if len(full_inventory) == 0:
+        error = f"Error in test_get_all_movies: Full inventory is empty.\n  - Actual: {len(full_inventory)}"
+        return False, error
+    else:
+        return True, "List of shows is not empty."
 
 def test_dict_factory_link(db: Database = None) -> tuple:
     """

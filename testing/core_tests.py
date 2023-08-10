@@ -1,5 +1,8 @@
+import sys
+sys.path.append('../')
 from core.session import Sessions, UserSession
 from database.db import Database
+from core.customer import Customers
 
 
 def test_init_sessions() -> tuple:
@@ -121,3 +124,20 @@ def test_get_session_db() -> tuple:
         return False, error
     else:
         return True, "Session's database is correct."
+    
+
+def test_get_customer_details() -> dict:
+    """
+    Tests to retrieve customer information.
+
+    args:
+        - None
+
+    returns:
+        - cust_dict
+    """
+
+    cust = Customers("elmatador1")
+    #print(cust.username)
+    cust_dict = cust.get_customer_details()
+    return cust_dict
