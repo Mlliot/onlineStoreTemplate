@@ -8,9 +8,12 @@ class Ticket:
         self.price = price
         self.showtime = showtime
 
-    def confirm_ticket():
-        return
+        def print_ticket():
+            print("----------------------------")
+
+        def confirm_ticket():
+            return
     
-    def save_ticket():
-        return
+        def save_ticket():
+            return
     

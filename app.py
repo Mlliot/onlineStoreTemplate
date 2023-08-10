@@ -132,9 +132,22 @@ def checkout():
             user_session.add_new_item(
                 item['id'], item['item_name'], item['price'], count)
 
+    ticket = ""
+    i = 0
+    for item in products:
+        if request.form[str(item['id'])] > '0':
+            i = i + 1
+            ticket+="====================="
+            ticket+="\nMovie: " +  item['item_name']
+            ticket+="\nPrice: " + str(item['price'])
+            ticket+="\nTicket #: " + str(i)
+            ticket+="\n=====================\n\n"
+
+
+
     user_session.submit_cart()
 
-    return render_template('checkout.html', order=order, sessions=sessions, total_cost=user_session.total_cost)
+    return render_template('checkout.html', order=order, sessions=sessions, total_cost=user_session.total_cost, ticket=ticket)
 
 
 if __name__ == '__main__':
