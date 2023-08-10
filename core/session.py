@@ -1,5 +1,5 @@
-from core.utils import calculate_total_cost
-from datetime import datetime
+import sys
+sys.path.append('../')
 from database.db import Database
 
 
@@ -19,11 +19,12 @@ class UserSession:
         - db: The database to use.
     """
 
-    def __init__(self, username: str, db: Database):
+    def __init__(self, username: str, db: Database, is_guest; bool = False):
         self.username = username
         self.total_cost = 0
         self.date = None
         self.db = db
+        self.is_guest = is_guest
         self.cart = self.empty_cart()
 
     def empty_cart(self) -> dict:
@@ -129,7 +130,7 @@ class Sessions:
     def __init__(self):
         self.sessions = {}
 
-    def add_new_session(self, username: str, db: Database) -> None:
+    def add_new_session(self, username: str, db: Database, is_guest: bool = False) -> None:
         """
         Adds a new user session to the collection of sessions.
 
@@ -140,7 +141,7 @@ class Sessions:
         returns:
             - None
         """
-        self.sessions[username] = UserSession(username, db)
+        self.sessions[username] = UserSession(username, db, is_guest)
 
     def get_session(self, username: str) -> UserSession:
         """
@@ -177,3 +178,19 @@ class Sessions:
             - A dictionary of user sessions.
         """
         return self.sessions
+
+def update_ticket_quantity(self, id: str, ) -> dict:
+        """
+        Updates the quantity of the items in a user's cart. 
+
+        args:
+            - id: The ID of the item (ticket).
+            - quantity: The quantity of the item.
+
+        returns:
+            - A dictionary of user sessions.
+        """
+        if self.cart[id] ["quantity"] + change_to_quantity <= 0;
+            self.remove_item(id)
+        else: 
+            self.cart[id]["quantity"] += change_to_quantity
