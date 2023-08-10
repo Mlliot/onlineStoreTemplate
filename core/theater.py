@@ -1,49 +1,39 @@
+import sys
+sys.path.append('../')
+from database.db import Database
 
-class Theater:
+class Theaters:
        """
     A class that handles all theater operations.
 
     args:
-        - business_name:
-        - address:
-        - website: 
-        - phone:
+        - location_code
+        - name:
+        - city:
+        - zip_code: 
 
     attributes:
-        - business_name:
-        - address:
-        - website: 
-        - phone:
+        - location_code
+        - name:
+        - city:
+        - zip_code: 
 
 
     """
-def __init__(self, business_name: str = None, address: str = None, website: str = None, phone: str = None) -> None:
-    self.business_name = business_name
-    self.address = address
-    self.website = website
-    self.phone = phone
+def __init__(self, location_code: str = None) -> None:
+    self.location_code = location_code
 
-def get_business_name() -> str:
-    pass
+def get_name(self) -> str:
+    return Database.get_theater_name(self.location_code)
 
-def set_business_name(self, business_name: str) -> None:
-    pass
+def get_city(self) -> str:
+    return Database.get_theater_city(self.location_code)
 
-def get_address() -> str:
-    pass
+def get_zip_code(self) -> str:
+    return Database.get_theater_zip_code(self.location_code)
 
-def set_address(self, address: str) -> None:
-    pass
+def get_theater_details(self) -> dict:
+    theater = {"name": Database.get_theater_name(self.location_code), "city": Database.get_theater_city(self.location_code), "zip_code": Database.get_theater_zip_code(self.location_code)}
+    return theater
 
-def get_website() -> str:
-    pass
-
-def set_website(self, website: str) -> None:
-    pass
-
-def get_phone() -> str:
-    pass
-
-def set_phone(self, phone: str) -> None:
-    pass
 

@@ -17,59 +17,31 @@ class "Ticket" as core.ticket.Ticket #aliceblue {
 }
 class "Customer" as core.customer.Customer #aliceblue {
   username
-  password
   email
   first_name
   last_name
-  get_username()
-  set_username(username: str)
-  get_password()
-  set_password(password: str)
-  get_email()
-  set_email(email: str)
-  get_first_name()
-  set_first_name(first_name: str)
-  get_last_name()
-  set_last_name(last_name: str)
-  forget_username(email: str)
-  forget_password(username: str)
-  generate_password_hash(password: str)
-}
-class "Movie" as core.movie.Movie #aliceblue {
-  title
-  genre
-  duration
-  rating
-  release_year
-  price
-  get_title()
-  set_title(title: str)
-  get_genre()
-  set_genre(genre: str)
-  get_duration()
-  set_duration(duration: datetime)
-  get_rating()
-  set_rating(rating: str)
-  get_release_year()
-  set_release_year(release_year: int)
-  get_price()
-  set_price(price: int)
-  get_movie_showtimes(title: str)
-  get_movie_by_theater(title: str)
+  get_customer_details()
 }
 class "Theater" as core.theater.Theater #aliceblue {
-  business_name
-  address
-  website
-  phone
-  get_business_name()
-  set_business_name(business_name: str)
-  get_address()
-  set_address(address: str)
-  get_website()
-  set_website(website: str)
-  get_phone()
-  set_phone(phone: str)
+  location_code
+  name
+  city
+  zip_code
+  get_theater_details()
+}
+class "Movie" as core.movie.Movie #aliceblue {
+  item_code
+  title
+  description
+  genre 
+  get_movie_details()
+}
+class "Show" as core.show.Show #aliceblue {
+  show_code
+  movie_title
+  running_time
+  date
+  get_shows_details()
 }
 class "UserSession" as core.session.UserSession #aliceblue {
   cart : dict

@@ -28,3 +28,34 @@ CREATE TABLE sales (
     FOREIGN KEY (item_id) REFERENCES inventory(id)
 );
 
+CREATE TABLE customers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    user_name VARCHAR(255) NULL,
+    email VARCHAR(255) NULL,
+    first_name VARCHAR(255) NULL,
+    last_name VARCHAR(255) NULL,
+);
+
+CREATE TABLE movies (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    item_code VARCHAR(255) NOT NULL,
+    title VARCHAR(255) NULL,
+    description VARCHAR(255) NULL,
+    genre VARCHAR(255) NULL
+);
+
+CREATE TABLE theaters (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    location_code VARCHAR(255) NOT NULL,
+    name VARCHAR(255) NULL,
+    city VARCHAR(255) NULL,
+    zip_code VARCHAR(255) NULL
+);
+
+CREATE TABLE shows (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    show_code VARCHAR(255) NOT NULL,
+    movie_title VARCHAR(255) NULL,
+    running_time INTEGER NULL,
+    date DATETIME NULL
+);

@@ -1,9 +1,10 @@
 @startuml search_movie
-actor  PaymentSystem
+actor  SearchEngine
 boundary "System" as system
 control "Sessions" as sessions
 control "Authentication" as auth
-PaymentSystem -> system: Search Inventory
+SearchEngine -> system: Get_User_Input
+SearchEngine -> system: Display_Result
 activate system
 system -> auth: login_pipeline(username, password)
 activate auth

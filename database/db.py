@@ -1,3 +1,5 @@
+import sys
+sys.path.append('../')
 from core.utils import dict_factory, calculate_cost
 import datetime as dt
 import sqlite3
@@ -337,7 +339,232 @@ class Database:
         self.cursor.execute(
             "SELECT last_name FROM users WHERE username = ?", (username,))
         return self.cursor.fetchone()
+    
+    #Customer
+    def get_all_customers(self):
+        """
+        Gets all customer information from the database.
 
+        args:
+            - None
+
+        returns:
+            - A list of all user information in the database.
+        """
+        self.cursor.execute("SELECT * FROM customers")
+        return self.cursor.fetchall()
+    
+    def get_customer_email(self, username: str):
+        """
+        Gets the email of a customer from the database.
+
+        args:
+            - username: The username of the user whose email to get.
+
+        returns:
+            - The email for the user with the given username.
+        """
+        self.cursor.execute(
+            "SELECT email FROM customers WHERE username = ?", (username,))
+        return self.cursor.fetchone()
+
+    def get_customer_first_name(self, username: str):
+        """
+        Gets the first name of a customer from the database.
+
+        args:
+            - username: The username of the user whose first name to get.
+
+        returns:
+            - The first name for the user with the given username.
+        """
+        self.cursor.execute(
+            "SELECT first_name FROM customers WHERE username = ?", (username,))
+        return self.cursor.fetchone()
+
+    def get_customer_last_name(self, username: str):
+        """
+        Gets the last name of a customer from the database.
+
+        args:
+            - username: The username of the user whose last name to get.
+
+        returns:
+            - The last name for the user with the given username.
+        """
+        self.cursor.execute(
+            "SELECT last_name FROM customers WHERE username = ?", (username,))
+        return self.cursor.fetchone()
+    
+
+    #Theater
+    def get_all_theaters(self):
+        """
+        Gets all theater information from the database.
+
+        args:
+            - None
+
+        returns:
+            - A list of all theaters information in the database.
+        """
+        self.cursor.execute("SELECT * FROM theaters")
+        return self.cursor.fetchall()
+    
+    def get_theater_name(self, location_code: str):
+        """
+        Gets theater by name from the database.
+
+        args:
+            - name: The name of theater where user wishes to see movies.
+
+        returns:
+            - The name of the theater.
+        """
+        self.cursor.execute(
+            "SELECT name FROM theaters WHERE location_code = ?", (location_code))
+        return self.cursor.fetchone()
+    
+    def get_theater_city(self, location_code: str):
+        """
+        Gets theater by city from the database.
+
+        args:
+            - city: The city where user wishes to see movies.
+
+        returns:
+            - The city of the theater.
+        """
+        self.cursor.execute(
+            "SELECT city FROM theaters WHERE location_code = ?", (location_code))
+        return self.cursor.fetchone()
+    
+    def get_theater_zip_code(self, location_code: str):
+        """
+        Gets theater by zip code from the database.
+
+        args:
+            - zip_code: The zip code where user wishes to see movies.
+
+        returns:
+            - The zip code of the theater.
+        """
+        self.cursor.execute(
+            "SELECT zip_code FROM theaters WHERE zip_code = ?", (location_code))
+        return self.cursor.fetchone()
+
+    #Movie
+    def get_all_movies(self):
+        """
+        Gets all movies information from the database.
+
+        args:
+            - None
+
+        returns:
+            - A list of all movies information in the database.
+        """
+        self.cursor.execute("SELECT * FROM movies")
+        return self.cursor.fetchall()
+    
+    def get_movie_title(self, item_code: str):
+        """
+        Gets movies title from the database.
+
+        args:
+            - item_code: unique identifier of a movie.
+
+        returns:
+            - The title of the movie.
+        """
+        self.cursor.execute(
+            "SELECT title FROM movies WHERE genre = ?", (item_code))
+        return self.cursor.fetchone()
+    
+    def get_movie_description(self, item_code: str):
+        """
+        Gets movies description from the database.
+
+        args:
+            - item_code: unique identifier of a movie.
+
+        returns:
+            - The description of the movie.
+        """
+        self.cursor.execute(
+            "SELECT description FROM movies WHERE genre = ?", (item_code))
+        return self.cursor.fetchone()
+    
+    def get_movie_genre(self, item_code: str):
+        """
+        Gets movies description from the database.
+
+        args:
+            - item_code: unique identifier of a movie.
+
+        returns:
+            - The genre of the movie.
+        """
+        self.cursor.execute(
+            "SELECT genre FROM movies WHERE genre = ?", (item_code))
+        return self.cursor.fetchone()
+    
+    #Shows
+    def get_all_shows(self):
+        """
+        Gets all showtimes information from the database.
+
+        args:
+            - None
+
+        returns:
+            - A list of all showtimes information in the database.
+        """
+        self.cursor.execute("SELECT * FROM shows")
+        return self.cursor.fetchall()
+    
+    def get_shows_movie_title(self, show_code: str):
+        """
+        Gets shows' movie title from the database.
+
+        args:
+            - show_code: unique identifier of a theater.
+
+        returns:
+            - The movie title for a showing.
+        """
+        self.cursor.execute(
+            "SELECT movie_title FROM shows WHERE show_code = ?", (show_code))
+        return self.cursor.fetchall()
+    
+    def get_shows_running_time(self, show_code: str):
+        """
+        Gets shows' running_time from the database.
+
+        args:
+            - show_code: unique identifier of a theater.
+
+        returns:
+            - The movie running time for a showing.
+        """
+        self.cursor.execute(
+            "SELECT running_time FROM shows WHERE show_code = ?", (show_code))
+        return self.cursor.fetchall()
+    
+    def get_shows_date(self, show_code: str):
+        """
+        Gets shows' date from the database.
+
+        args:
+            - show_code: unique identifier of a theater.
+
+        returns:
+            - The movie running time for a showing.
+        """
+        self.cursor.execute(
+            "SELECT date FROM shows WHERE show_code = ?", (show_code))
+        return self.cursor.fetchall()
+    
     # ------ Setter methods ------
 
     def set_password_hash(self, username: str, new_password_hash: str):

@@ -3,7 +3,11 @@ actor  PaymentSystem
 boundary "System" as system
 control "Sessions" as sessions
 control "Authentication" as auth
-PaymentSystem -> system: Validate Payment Data
+PaymentSystem -> system: Authorize
+PaymentSystem -> system: Capture
+PaymentSystem -> system: Refund
+PaymentSystem -> system: Cancel
+PaymentSystem -> system: Verify
 activate system
 system -> auth: login_pipeline(username, password)
 activate auth
