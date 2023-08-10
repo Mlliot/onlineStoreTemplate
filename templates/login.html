@@ -1,19 +1,31 @@
 {% extends "layout.html" %}
 
 {% block content %}
-<div class="row" id="info_row">
-    <h3>Welcome back!</h3>
-    <div class="col-md-12" id="login_class">
-        <form action="/home" method="post" id="login_form">
-            <div class="form-group" id="info_form_group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Enter username">
+<div class="row" id="ticketing_row">
+    <h3>Book Movie Tickets Online</h3>
+    <div class="col-md-12" id="ticketing_form">
+        <form action="/book_tickets" method="post" id="ticket_booking_form">
+            <div class="form-group">
+                <label for="movie">Select a Movie</label>
+                <select class="form-control" id="movie" name="movie">
+                    {% for movie in movie_list %}
+                        <option value="{{ movie.id }}">{{ movie.title }}</option>
+                    {% endfor %}
+                </select>
             </div>
-            <div class="form-group" id="info_form_group">
-                <label for=" password">Password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+            <div class="form-group">
+                <label for="showtime">Select a Showtime</label>
+                <select class="form-control" id="showtime" name="showtime">
+                    {% for showtime in showtimes %}
+                        <option value="{{ showtime.id }}">{{ showtime.start_time|datetimeformat('%Y-%m-%d %H:%M') }}</option>
+                    {% endfor %}
+                </select>
             </div>
-            <button type="submit" class="btn btn-primary" id="login_button">Login</button>
+            <div class="form-group">
+                <label for="num_tickets">Number of Tickets</label>
+                <input type="number" class="form-control" id="num_tickets" name="num_tickets" min="1" max="10" value="1">
+            </div>
+            <button type="submit" class="btn btn-primary" id="book_tickets_button">Book Tickets</button>
         </form>
     </div>
 </div>
