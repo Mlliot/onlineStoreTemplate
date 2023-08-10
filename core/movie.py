@@ -32,44 +32,44 @@ def __init__(self, title: str = None, genre: str = None, duration: DateTime = No
     self.release_year = release_year
     self.price = price
 
-def get_title() -> str:
-    pass
+    def get_title() -> str:
+        return title
 
-def set_title(self, title: str) -> None:
-    pass
+    def set_title(self, title: str) -> None:
+        self.title = title
 
-def get_genre() -> str:
-    pass
+    def get_genre() -> str:
+        return genre
 
-def set_genre(self, genre: str) -> None:
-    pass
+    def set_genre(self, genre: str) -> None:
+        self.genre = genre
 
-def get_duration() -> datetime:
-    pass
+    def get_duration() -> datetime:
+        return duration
 
-def set_duration(self, duration: datetime) -> None:
-    pass
+    def set_duration(self, duration: datetime) -> None:
+        self.duration = duration
 
-def get_rating() -> str:
-    pass
+    def get_rating() -> str:
+        return rating
 
-def get_rating(self, rating: str) -> None:
-    pass
+    def set_rating(self, rating: str) -> None:
+        self.rating = rating
 
-def get_release_year() -> int:
-    pass
+    def get_release_year() -> int:
+        return release_year
 
-def set_release_year(self, release_year: int) -> None:
-    pass
+    def set_release_year(self, release_year: int) -> None:
+        self.release_year = release_year
 
-def get_price() -> str:
-    pass
+    def get_price() -> str:
+        return price
 
-def set_price(self, price: int) -> None:
-    pass
+    def set_price(self, price: int) -> None:
+        self.price = price
 
-def get_movie_showtimes(self, title: str) -> dict:
-    pass
+    def get_movie_showtimes(self, title: str) -> dict:
+        pass
 
-def get_movie_by_theater(self, title: str) -> dict:
-    pass
+    def get_movie_by_theater(self, title: str) -> dict:
+        pass
